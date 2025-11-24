@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- ask user for 8 digit phone number -->
+    <form action="" id="formphone">
+      <label for="txtInput">Please enter your 8 digit phone number</label>
+      <input type="text" id="textInput" />
+      <button type="submit">Submit</button>
+    </form>
+    <!-- internal script to process the user input -->
+    <script>
+      // using the DOM to process the form inputs
+      const form = document
+        .querySelector("form")
+        .addEventListener("submit", (event) => {
+          event.preventDefault(); //supress the default actions
+
+          let result = document.getElementById("textInput").value;
+
+          //validate that the user submitted a number
+          if (isNaN(result)) {
+            return alert("you did not enter a phone number");
+          }
+          // validate that the user input is of a length of 8 numbers
+          if (result.length != 8) {
+            return alert("you need to enter a 8-digit number");
+          }
+            // if all of the above passes, then we thank the user
+            result = "+65-" + result;
+            return alert(`thank you, we will contact you at ${result}`);
+          
+        });
+    </script>
+  </body>
+</html>
