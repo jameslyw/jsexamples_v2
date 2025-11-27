@@ -121,6 +121,50 @@ console.log(prd_of_arr, "using * operator"); // 24
 // another approach of applying a reuduce function of an array
 // Implement your code here
 
+const arr = new Array(2,3,4,5);
+
+function product(a,b){
+    return a * b;
+}
+    const resultOfProduct = arr.reduce(product);
+    console.log(resultOfProduct);
+
+// append elements to an EXISTING array
+
+const teamList = ["Tanna", "Shalyn", "Zhang", "Francis"];
+teamList.push("Muhaimin");
+console.log(teamList.length);
+console.log(teamList);
+
+// remove the last element of an EXISTING array
+
+teamList.pop();
+console.log(teamList.length);
+console.log(teamList);
+
+// shift and unshift elements of an array
+const mag7 = ["FB", "AMZN", "AAPL", "TSLA", "GOOG"];
+console.log(mag7.shift());      // FB removed
+console.log(mag7);                 // AMZN, AAPL, TSLA, GOOG
+
+//unshift (prepend MTA, NVDA, MSFT)
+mag7.unshift("META", "NVDA", "MSFT")
+console.log(mag7);
+
+// Splicing to insert into an array without removing values in it
+const bballTeam = ["Jordan", "Pippen", "Bill"];  // array list is indexed as 0, 1, 2
+const index = 2;
+const newPlayer = "Steve Carr";                    // add in new player named "Steve Carr"
+bballTeam.splice(index, 0, newPlayer);
+console.log(bballTeam);
+
+//? replace bill with rodman
+bballTeam.splice(3, 1, "Rodman")
+console.log(bballTeam)
+
+// alternative way to replace
+bballTeam.splice(bballTeam.length -1, 1, "Somebody");
+console.log(bballTeam)
 
 // ---------
 // 2. LOOPS
@@ -128,15 +172,67 @@ console.log(prd_of_arr, "using * operator"); // 24
 
 // i - for loops (Simulate a countdown using a for loop)
 // Implement your code here
+const max = 10;
+for (let index = 1; index <= max; index++) {
+//    const element = Array[index];
+console.log(index);
+}
 
+const max100 = 100;
+    for (let index = 10; index <= max100 ; index = index + 10) {
+        console.log(index);
+    }
+// countdown (10 - 1)
+for (let index = max; index >= 0 ; index--){
+    //console.log(index);
+    if (index === 1)
+        console.log("Merry christmas");
+        else    
+        console.log(index);
+}
+
+// countdown ternary operation
+for (let index = max; index >= 0; index--){
+    // if(condition) ?execute if condition block : else block (ternary operation)
+    (index === 0) ? console.log("Merry X'mas") : console.log(index);
+}
 
 // ii - for-each loop
 // Implement your code here
 
+const tickerSymbols = ["META", "AMZN", "GOOG", "MSFT"];
+//for (let index = 0; index < tickerSymbols.length; index++){
+//    console.log(tickerSymbols[index]);
+//}
+
+for (let index = 0; index < tickerSymbols.length; index++){
+    console.log(`${index + 1}. ${tickerSymbols[index]}`)};
+    console.log("this is an example of a for loop");
+
+
+
+
+// tickerSymbols.forEach(element => { console.log(element)});
+tickerSymbols.forEach((element, index) => { console.log(`${index + 1 }. ${element}`) });
+console.log("this is a forEach loop");
 
 // iii - do-while loop (execute first, check for the condition later)
 // Implement your code here
 
+let i = 0;
+
+do{
+    console.log(i);
+    i++;
+} while (i <= 5);
+console.log("this is a do while loop");
 
 // iv - while loop (check the conditions first before running the while loop)
 // Implement your code here
+
+let j = 0;
+while (j <=10) {
+    console.log(j); // print 0 to 10
+    j++;
+}
+console.log(" this is a while loop");
