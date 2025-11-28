@@ -6,16 +6,18 @@ let userInput = prompt("Guess the number. Press q or Q to quit.").toLowerCase; /
 
 while(userInput !=='q'){ 
     
-    if(userInput === 10 || userInput === "ten"){      // if the user enters the correct answer, provide an alert
+    if(Number(userInput) === 10){      // if the user enters the correct answer, provide an alert
         alert("You are correct!!!");
         break;
     }
     else if(!userInput){                               // if the user puts in an empty string, provide an alert
-        userInput = prompt("Your answer is empty, Please enter a value").toLowerCase;
+        userInput = prompt("Your answer is empty, Please enter a value").toLowerCase();
     }
     else {                                              //wrong answer, provide and alert and prompt
-        alert("Answer Incorrect.");
-        userInput = prompt("Guess the number. Press q or Q to quit").toLowerCase;
+        const hint = userInput < ans ? "Higher" : "Lower";
+
+        alert(`Answer Incorrect. ${hint} number please`);
+        userInput = prompt("Guess the number. Press q or Q to quit").toLowerCase();
     }
 
 
