@@ -1,4 +1,6 @@
-const Vehicle = require("./Vehicle.js");
+import Vehicle from "./Vehicle.js";
+
+/* const Vehicle = require("./Vehicle.js"); */
 
 // Create a child class (Car) from vehicle class
 class Car extends Vehicle { // INHERITS the vehicle class
@@ -9,6 +11,12 @@ class Car extends Vehicle { // INHERITS the vehicle class
         super(make, model, year); //super (keyword) - refer to the parent class
         this.airbag = true;     //unique to cars
     }
+    // a static method of a
+    //  class can be used without instantiation
+    static welcomeStatement(msg){
+        console.log(msg);
+    }
+
     //polymorphism (override and specialising the parent method)
     drive(distance) {
         super.travel(distance); // abstraction - drive method hides the implementation (travel)
@@ -30,11 +38,18 @@ class Car extends Vehicle { // INHERITS the vehicle class
 
 }
 
+// Instantiate a new instance of a car called myNewCar
+
+Car.welcomeStatement("\n**********\nWelcome Car Owner\n*********\n");
 
 const myNewCar = new Car("Honda", "Civic", "2024");
 myNewCar.drive(800);
 console.log(`Does my new car have safety feature: ${myNewCar.checkSafetyFeature()}`);
 console.log(`My new car has driven ${myNewCar.getTotalDistance()} km.`)
+
+const mySecondNewCar = new Car("Toyota", "Vios", "2015");
 //console.log(myNewCar);
 
-module.exports = Car; // Export the class Car
+
+//module.exports = Car; // Export the class Car
+export default Car;

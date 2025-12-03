@@ -46,4 +46,6 @@ console.log(`My Transport has travelled a total of ${myTransport.getTotalDistanc
 
 console.log(`My Transport has travelled a total of ${myTransport2.getTotalDistance()} km.`); */
 
-module.exports = Vehicle; //class Vehicle is exported 
+//module.exports = Vehicle; //class Vehicle is exported 
+
+export default Vehicle
