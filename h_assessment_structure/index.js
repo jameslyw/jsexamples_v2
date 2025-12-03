@@ -106,6 +106,7 @@ class Field {
 
   /**
    * !! TODO: updateGame Assessment Challenge
+   * 03/12
    * @param {*} m accept the value of the player's move (UP|DOWN|LEFT|RIGHT)
    */
   updateGame(m = ""){
