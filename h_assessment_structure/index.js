@@ -113,8 +113,8 @@ class Field {
 
   let { x, y } = this.playerPosition;
 
-  // erase previous location (mark with 0)
-  //this.field[y][x] = 0;
+  
+  this.field[y][x] = 0;
 
   // Apply movement
   if(m === UP) y--;
