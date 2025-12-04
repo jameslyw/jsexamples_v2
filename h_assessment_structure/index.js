@@ -109,7 +109,47 @@ class Field {
    * 03/12
    * @param {*} m accept the value of the player's move (UP|DOWN|LEFT|RIGHT)
    */
-  updateGame(m = ""){
+  updateGame(m = "") {
+
+  let { x, y } = this.playerPosition;
+
+  // erase previous location (mark with 0)
+  //this.field[y][x] = 0;
+
+  // Apply movement
+  if(m === UP) y--;
+  if(m === DOWN) y++;
+  if(m === LEFT) x--;
+  if(m === RIGHT) x++;
+
+  // Check out of bounds
+  if (x < 0 || x >= COLS || y < 0 || y >= ROWS) {
+    console.log(OUT);
+    process.exit();
+  }
+
+  // Check hole
+  if (this.field[y][x] === HOLE) {
+    console.log(LOSE);
+    process.exit();
+  }
+
+  // Check hat
+  if (this.field[y][x] === HAT) {
+    console.log(WIN);
+    process.exit();
+  }
+
+  // Update new position
+  this.playerPosition = { x, y };
+  this.field[y][x] = PLAYER;
+}
+
+    
+    // find the holes 
+    // check if out of bounds
+    
+    
     // capture the player's currX and currY postion first
     // update the field to show the player's new position
     // if the player x and y position is a HOLE
@@ -122,7 +162,7 @@ class Field {
     //      WIN
     //      process.exit();
     // otherwise, move the player to the new x and y position based on move
-  }
+
 
   // DONE: start() a method of the class to start the game
   start(){
