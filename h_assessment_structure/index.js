@@ -113,9 +113,6 @@ class Field {
 
   let { x, y } = this.playerPosition;
 
-  
-  this.field[y][x] = 0;
-
   // Apply movement
   if(m === UP) y--;
   if(m === DOWN) y++;
